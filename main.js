@@ -1,6 +1,10 @@
 const express = require("express");
-
+var cors = require('cors')  
 const app = express();
+
+app.use(cors())
+
+
 const items = [
     "Item 1",
     "Item 2",
