@@ -3,7 +3,7 @@ var cors = require('cors')
 const app = express();
 
 app.use(cors())
-
+app.use(express.json());
 
 const items = [
     {
@@ -41,6 +41,21 @@ const items = [
 app.get("/", (request, response) => {
 
     response.json(items)
+});
+
+app.post("/order", (request, response) => {
+    const body = request.body;
+    if(!body) return badRequest;
+
+    const {firstName, lastName, address, postcode, email, cardNumber, cardExpiry, cardPin, nameOnCard} = body;
+
+    if (!firstName || !lastName || !address || !postcode || !email  ) return response.status(400).json();
+
+    if (parseInt(cardNumber) !== 455902345619410) return response.status(400).json();
+    if (cardExpiry !== "11/28") return response.status(400).json();
+    if (parseInt(cardPin) !== 532) return response.status(400).json();
+    if (nameOnCard !== "John Smith") return response.status(400).json();
+    return response.status(200).json();
 })
 
 const port = 9300;
