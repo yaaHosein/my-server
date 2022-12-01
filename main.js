@@ -47,7 +47,7 @@ app.post("/order", (request, response) => {
     const body = request.body;
     if(!body) return badRequest;
 
-    const {firstName, lastName, address, postcode, email, cardNumber, cardExpiry, cardPin, nameOnCard} = body;
+    const {firstName, lastName, address, postcode, email, cardNumber, cardExpiry, cardPin, nameOnCard, orderId} = body;
 
     if (!firstName || !lastName || !address || !postcode || !email  ) return response.status(400).json();
 
