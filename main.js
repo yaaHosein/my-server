@@ -1,52 +1,62 @@
-const express = require("express");
+var express = require("express");
 var bodyParser = require("body-parser");
 
 var cors = require("cors");
-const app = express();
+var app = express();
 
 app.use(cors());
-// app.use(express.json());
+app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// parse application/json
+
 app.use(bodyParser.json());
 
-const items = [
-  {
-    name: "Camera",
-    price: 19.25,
-    id: 1,
-    category: "Camera & Photo",
-  },
-  {
-    name: "Dell X5",
-    price: 450,
-    id: 2,
-    category: "Computer & Laptop",
-  },
-  {
-    name: "1L fresh milk",
-    price: 1.99,
-    id: 3,
-    category: "Dairy",
-  },
-  {
-    name: "Philadelphia Cheese",
-    price: 2.99,
-    id: 4,
-    category: "Dairy",
-  },
-  {
-    name: "Naissance Fractionated Coconut Oil",
-    price: 10.5,
-    id: 5,
-    category: "Oils",
-  },
-];
+const items = ["item1","item1",] 
 
 app.get("/", (request, response) => {
+  console.log(response);
   response.json(items);
+
 });
+
+
+console.log("hello");
+
+
+
+// const items = [
+//   {
+//     name: "Camera",
+//     price: 19.25,
+//     id: 1,
+//     category: "Camera & Photo",
+//   },
+//   {
+//     name: "Dell X5",
+//     price: 450,
+//     id: 2,
+//     category: "Computer & Laptop",
+//   },
+//   {
+//     name: "1L fresh milk",
+//     price: 1.99,
+//     id: 3,
+//     category: "Dairy",
+//   },
+//   {
+//     name: "Philadelphia Cheese",
+//     price: 2.99,
+//     id: 4,
+//     category: "Dairy",
+//   },
+//   {
+//     name: "Naissance Fractionated Coconut Oil",
+//     price: 10.5,
+//     id: 5,
+//     category: "Oils",
+//   },
+// ];
+
 
 app.post("/order", (request, response) => {
   const body = request.body;
