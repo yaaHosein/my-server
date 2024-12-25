@@ -5,7 +5,7 @@ var cors = require("cors");
 var app = express();
 
 app.use(cors());
-app.use(express.json());
+// app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
@@ -14,13 +14,13 @@ app.use(bodyParser.json());
 const items = ["item1","item1",] 
 
 app.get("/", (request, response) => {
-  console.log(response);
+  // console.log(response);
   response.json(items);
 
 });
 
 
-console.log("hello");
+// console.log("hello");
 
 
 
@@ -60,7 +60,7 @@ console.log("hello");
 
 app.post("/order", (request, response) => {
   const body = request.body;
-  console.log("xxxxxxxxxxxxxxxxxx");
+  // console.log("xxxxxxxxxxxxxxxxxx");
   const {
     firstName,
     lastName,
@@ -77,20 +77,20 @@ app.post("/order", (request, response) => {
   console.log("body", body);
   if (!firstName || !lastName || !address || !postcode || !email)
     return response.status(400).json();
-  console.log("x");
+  // console.log("x");
   if (parseInt(cardNumber) !== 455902345619410)
     return response.status(400).json();
-  console.log("xx");
+  // console.log("xx");
   if (cardExpiry !== "11/28") return response.status(400).json();
-  console.log("xxx");
+  // console.log("xxx");
   if (parseInt(cardPin) !== 532) return response.status(400).json();
-  console.log("xxxxcccc");
+  // console.log("xxxxcccc");
   if (nameOnCard !== "John Smith") return response.status(400).json();
-  console.log("xxxxxxxxxxxxxxxxxx");
+  // console.log("xxxxxxxxxxxxxxxxxx");
   return response.status(200).json();
 });
 
 const port = 9300;
 app.listen(port, () => {
-  console.log("listening on port", port);
+  // console.log("listening on port", port);
 });
