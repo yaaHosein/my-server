@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 const items = ["item1","item1",] 
 
 app.get("/", (request, response) => {
-  // console.log(response);
+  console.log(response);
   console.log(request);
   
   response.json(items);
@@ -92,7 +92,7 @@ app.post("/order", (request, response) => {
   return response.status(200).json();
 });
 
-const port = 9100;
+const port = 9000;
 app.listen(port, () => {
   // console.log("listening on port", port);
 });
