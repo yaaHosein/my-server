@@ -15,12 +15,14 @@ const items = ["item1","item1",]
 
 app.get("/", (request, response) => {
   // console.log(response);
+  console.log(request);
+  
   response.json(items);
 
 });
 
 
-// console.log("hello");
+console.log("hello");
 
 
 
@@ -90,7 +92,7 @@ app.post("/order", (request, response) => {
   return response.status(200).json();
 });
 
-const port = 9300;
+const port = 9100;
 app.listen(port, () => {
   // console.log("listening on port", port);
 });
